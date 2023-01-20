@@ -1,6 +1,6 @@
 {
-  "name": "connected-react-router",
-  "version": "6.9.3",
+  "name": "connected-react18-router",
+  "version": "6.9.4",
   "description": "A Redux binding for React Router v4 and v5",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -17,10 +17,10 @@
     "umd"
   ],
   "scripts": {
-    "build:esm": "cross-env BABEL_ENV=esm babel src --out-dir esm",
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-    "build:umd": "cross-env NODE_ENV=development webpack src/index.js --output umd/ConnectedReactRouter.js",
-    "build:umd:min": "cross-env NODE_ENV=production webpack -p src/index.js --output umd/ConnectedReactRouter.min.js",
+    "build:esm": "cross-env BABEL_ENV=esm NODE_OPTIONS=--openssl-legacy-provider babel src --out-dir esm",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs NODE_OPTIONS=--openssl-legacy-provider babel src --out-dir lib",
+    "build:umd": "cross-env NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider webpack src/index.js --output umd/ConnectedReactRouter.js",
+    "build:umd:min": "cross-env NODE_ENV=production NODE_OPTIONS=--openssl-legacy-provider webpack -p src/index.js --output umd/ConnectedReactRouter.min.js",
     "build": "npm run build:esm & npm run build:commonjs & npm run build:umd & npm run build:umd:min",
     "lint": "eslint .",
     "test": "jest --config ./.jestrc.json",
@@ -28,12 +28,13 @@
     "posttest": "npm run lint"
   },
   "dependencies": {
-    "prop-types": "^15.7.2",
-    "lodash.isequalwith": "^4.4.0"
+    "connected-react18-router": "^6.9.4",
+    "lodash.isequalwith": "^4.4.0",
+    "prop-types": "^15.7.2"
   },
   "peerDependencies": {
     "history": "^4.7.2",
-    "react": "^16.4.0 || ^17.0.0",
+    "react": "^16.4.0 || ^17.0.0 || ^18.0.0",
     "react-redux": "^6.0.0 || ^7.1.0",
     "react-router": "^4.3.1 || ^5.0.0",
     "redux": "^3.6.0 || ^4.0.0"
